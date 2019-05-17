@@ -1,0 +1,8 @@
+{
+  "name": "nuxt-datadog-trace",
+  "version": "0.0.1",
+  "description": "Enable Datadog tracing in your Nuxt application",
+  "main": "index.js",
+  "author": "@aaronransley",
+  "license": "MIT"
+}
