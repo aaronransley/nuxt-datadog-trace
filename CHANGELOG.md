@@ -9,6 +9,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - ...
 
+## [v0.0.4] - 5-26-2019
+
+- Updated readme format + edited for clarity
+
+## [v0.0.3] - 5-26-2019
+
+- Add web URLs to `./package.json`
+
 ## [v0.0.2] - 5-26-2019
 
 - Add readme and a changelog

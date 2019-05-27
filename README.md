@@ -1,52 +1,52 @@
 # nuxt-datadog-trace
 
-Quickly add `dd-trace` / Datadog APM tracing to your Nuxt application. Captures requests passing
+A module to add `dd-trace` / Datadog APM tracing to your Nuxt application. Captures requests passing
 through the Nuxt instance / `http` module in Node.js.
 
-**Note:** This module is very barebones at the moment, and doesn't provide an interface to the `dd-trace` scope manager. This functionality is planned!
+**Note:** This module is in alpha stages at the moment, and doesn't yet provide an interface to the `dd-trace` scope manager.
 
 # Installation
 
 1. Install npm package
 
-```
-$ yarn add nuxt-datadog-trace // or npm i nuxt-datadog-trace
+```sh
+$ yarn add nuxt-datadog-trace # or npm i nuxt-datadog-trace
 ```
 
 2. Edit your `nuxt.config.js` file to add module
 
-```
-  {
-    modules: [
-      'nuxt-datadog-trace'
-    ]
-  }
-```
-
-By default, `dd-trace` will be configured like so:
-
-```
-{
-  hostname: process.env.DATADOG_AGENT_HOST,
-  env: process.env.NODE_ENV,
-  service: require('./package.json').name,
-  logInjection: true,
+```js
+export default {
+  modules: ['nuxt-datadog-trace']
 }
 ```
 
-To override options, see Usage section.
+3. Change options as needed. See Usage section for details.
 
 # Usage
 
 1. Configure `dd-trace` instance by adding `datadogTrace` to `nuxt.config.js`.
    - Learn [more about `dd-trace` options](https://datadog.github.io/dd-trace-js/interfaces/traceroptions.html)
 
-```
-{
+```js
+export default {
   datadogTrace: {
     hostname: 'cool.net',
     logInjection: false
     // ...
+  }
+}
+```
+
+2. By default, `nuxt-datadog-trace` is configured like so:
+
+```js
+export default {
+  datadogTrace: {
+    hostname: process.env.DATADOG_AGENT_HOST,
+    env: process.env.NODE_ENV,
+    service: require('./package.json').name,
+    logInjection: true
   }
 }
 ```
