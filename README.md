@@ -43,10 +43,11 @@ export default {
 ```js
 export default {
   datadogTrace: {
-    hostname: process.env.DATADOG_AGENT_HOST,
+    hostname: process.env.DATADOG_AGENT_HOST || 'localhost',
     env: process.env.NODE_ENV,
-    service: require('./package.json').name,
-    logInjection: true
+    service: `host app's [package.json].name property`,
+    logInjection: true,
+    ...yourOverrides
   }
 }
 ```

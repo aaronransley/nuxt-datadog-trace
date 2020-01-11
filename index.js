@@ -1,13 +1,17 @@
-const pkg = require('./package.json')
+module.exports = function DatadogTrace(moduleOptions) {
+  const path = require('path')
+  const hostAppPkg = require(path.resolve(this.options.rootDir, 'package.json'))
 
-module.exports = function DatadogTrace() {
-  require('dd-trace').init({
-    hostname: process.env.DATADOG_AGENT_HOST,
+  let mergedOptions = {
+    hostname: process.env.DATADOG_AGENT_HOST || 'localhost',
     env: process.env.NODE_ENV,
-    service: pkg.name,
+    service: hostAppPkg.name,
     logInjection: true,
+    ...moduleOptions,
     ...this.options.datadogTrace
-  })
+  }
+  console.log(mergedOptions)
+  require('dd-trace').init(mergedOptions)
 }
 
-module.exports.meta = pkg
+module.exports.meta = require('./package.json')

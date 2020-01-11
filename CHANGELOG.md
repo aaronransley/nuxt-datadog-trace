@@ -9,6 +9,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - ...
 
+## [v0.1.0] - 1-11-2020
+
+- Add support for module options in standard Nuxt style, e.g.
+  - `['nuxt-datadog-trace', { hostname: 'localhost' }]`
+- Default dd-trace to `localhost` hostname if `DATADOG_AGENT_HOST` ENV is falsey
+- Fix service name defaulting to nuxt-datadog-trace. Now defaults to host app's [package.json].name property
+- Add .prettierrc file
+
 ## [v0.0.4] - 5-26-2019
 
 - Updated readme format + edited for clarity
