@@ -1,6 +1,6 @@
 {
   "name": "nuxt-datadog-trace",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Enable Datadog tracing in your Nuxt application",
   "main": "index.js",
   "author": "Aaron Ransley (https://aaronransley.com)",

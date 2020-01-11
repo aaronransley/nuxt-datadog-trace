@@ -10,7 +10,6 @@ module.exports = function DatadogTrace(moduleOptions) {
     ...moduleOptions,
     ...this.options.datadogTrace
   }
-  console.log(mergedOptions)
   require('dd-trace').init(mergedOptions)
 }
 
