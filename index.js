@@ -3,9 +3,9 @@ module.exports = function DatadogTrace(moduleOptions) {
   const hostAppPkg = require(path.resolve(this.options.rootDir, 'package.json'))
 
   let mergedOptions = {
-    hostname: process.env.DATADOG_AGENT_HOST || 'localhost',
-    env: process.env.NODE_ENV,
-    service: hostAppPkg.name,
+    hostname: process.env.DD_AGENT_HOST || 'localhost',
+    env: process.env.DD_ENV,
+    service: process.env.DD_SERVICE || hostAppPkg.name,
     logInjection: true,
     ...moduleOptions,
     ...this.options.datadogTrace
